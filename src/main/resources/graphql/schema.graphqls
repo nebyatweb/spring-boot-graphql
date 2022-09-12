@@ -1,10 +1,55 @@
+scalar LocalDateTime
+
 type Query {
-    getPosts: [Post]
+    userById(userId: ID): User!
+    allUsers: [User]!
+    postById(postId: ID): Post!
+    allPosts: [Post]!
+    commentById(commentId: ID): Comment!
+    allComments: [Comment]!
+    likeById(likeId: ID): Like!
+    allLikes: [Like]!
+}
+
+type User {
+    userId: ID!
+    username: String!
+    password: String!
+    email: String!
+    createdAt: LocalDateTime!
+    posts: [Post]
 }
 
 type Post {
-    id: ID!
+    postId: ID!
     body: String!
-    createdAt: String!
+    createdAt: LocalDateTime!
     username: String!
+    comments: [Comment]
+}
+
+type Comment {
+    commentId: ID!
+    body: String!
+    username: String!
+    createdAt: LocalDateTime!
+    likes: [Like]
+}
+
+type Like {
+    likeId: ID!
+    username: String!
+    createdAt: LocalDateTime!
+}
+
+type Mutation {
+    createUser(input: CreateUserInput): User
+    createPost()
+}
+
+input CreateUserInput {
+    username: String!
+    password: String!
+    email: String!
+    createdAt: LocalDateTime!
 }

@@ -20,10 +20,11 @@ public class Post {
     private String body;
     private String username;
     private LocalDateTime createdAt;
-    @OneToMany
-    List<Comment> comments = new ArrayList<>();
+//    @OneToMany(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "postId")
+//    List<Comment> comments = new ArrayList<>();
 
-    public void addComment(Comment comment) {
-        comments.add(comment);
-    }
+//    public void addComment(Comment comment) {
+//        comments.add(comment);
+//    }
 }

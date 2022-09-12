@@ -8,13 +8,13 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.time.LocalDateTime;
 
-@Entity
+//@Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class Like {
     @Id
-    private Long likeId;
+    private long likeId;
     private String username;
     private LocalDateTime createdAt;
 }
