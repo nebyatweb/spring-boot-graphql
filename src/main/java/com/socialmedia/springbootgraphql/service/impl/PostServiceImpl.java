@@ -47,7 +47,6 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public List<Comment> getComments(long postId) {
-        //return list of comments of a post
-        return null;
+        return postRepository.findById(postId).get().getComments();
     }
 }
