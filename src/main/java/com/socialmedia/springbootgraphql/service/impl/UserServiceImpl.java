@@ -3,7 +3,6 @@ package com.socialmedia.springbootgraphql.service.impl;
 import com.socialmedia.springbootgraphql.domain.Post;
 import com.socialmedia.springbootgraphql.domain.User;
 import com.socialmedia.springbootgraphql.exception.UserNotFoundException;
-import com.socialmedia.springbootgraphql.repository.PostRepository;
 import com.socialmedia.springbootgraphql.repository.UserRepository;
 import com.socialmedia.springbootgraphql.service.UserService;
 import org.springframework.stereotype.Service;
@@ -13,11 +12,9 @@ import java.util.List;
 @Service
 public class UserServiceImpl implements UserService {
     private UserRepository userRepository;
-    private PostRepository postRepository;
 
-    public UserServiceImpl(UserRepository userRepository, PostRepository postRepository) {
+    public UserServiceImpl(UserRepository userRepository) {
         this.userRepository = userRepository;
-        this.postRepository = postRepository;
     }
 
     @Override
