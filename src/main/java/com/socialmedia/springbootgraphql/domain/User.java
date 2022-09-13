@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,7 +21,7 @@ public class User {
     private String username;
     private String password;
     private String email;
-    private LocalDateTime createdAt;
+    private LocalDate createdAt;
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "userId")
     private List<Post> posts = new ArrayList<>();

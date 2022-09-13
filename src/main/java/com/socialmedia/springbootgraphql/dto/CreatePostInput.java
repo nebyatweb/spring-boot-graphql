@@ -1,20 +1,16 @@
-package com.socialmedia.springbootgraphql.domain;
+package com.socialmedia.springbootgraphql.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
-import javax.persistence.Id;
 import java.time.LocalDate;
 
-@Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Like {
-    @Id
-    private long likeId;
-    private String username;
+public class CreatePostInput {
+    private long postId;
+    private String body;
     private LocalDate createdAt;
 }

@@ -2,7 +2,9 @@ package com.socialmedia.springbootgraphql.controller;
 
 import com.socialmedia.springbootgraphql.domain.Post;
 import com.socialmedia.springbootgraphql.domain.User;
+import com.socialmedia.springbootgraphql.dto.CreatePostInput;
 import com.socialmedia.springbootgraphql.dto.CreateUserInput;
+import com.socialmedia.springbootgraphql.service.PostService;
 import com.socialmedia.springbootgraphql.service.UserService;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.MutationMapping;

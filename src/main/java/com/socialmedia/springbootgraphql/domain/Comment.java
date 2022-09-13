@@ -5,11 +5,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-//@Entity
+@Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -19,7 +19,7 @@ public class Comment {
     private long commentId;
     private String body;
     private String username;
-    private LocalDateTime createdAt;
+    private LocalDate createdAt;
     @OneToMany(cascade = CascadeType.ALL)
             @JoinColumn(name = "commentId")
     List<Like> likes = new ArrayList<>();

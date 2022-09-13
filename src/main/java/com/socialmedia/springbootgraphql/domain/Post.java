@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,12 +19,12 @@ public class Post {
     private Long postId;
     private String body;
     private String username;
-    private LocalDateTime createdAt;
-//    @OneToMany(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "postId")
-//    List<Comment> comments = new ArrayList<>();
+    private LocalDate createdAt;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "postId")
+    List<Comment> comments = new ArrayList<>();
 
-//    public void addComment(Comment comment) {
-//        comments.add(comment);
-//    }
+    public void addComment(Comment comment) {
+        comments.add(comment);
+    }
 }

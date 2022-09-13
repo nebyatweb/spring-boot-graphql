@@ -1,29 +1,18 @@
-scalar LocalDateTime
-
-type Query {
-    userById(userId: ID): User!
-    allUsers: [User]!
-    postById(postId: ID): Post!
-    allPosts: [Post]!
-    commentById(commentId: ID): Comment!
-    allComments: [Comment]!
-    likeById(likeId: ID): Like!
-    allLikes: [Like]!
-}
+scalar LocalDate
 
 type User {
     userId: ID!
     username: String!
     password: String!
     email: String!
-    createdAt: LocalDateTime!
+    createdAt: LocalDate!
     posts: [Post]
 }
 
 type Post {
     postId: ID!
     body: String!
-    createdAt: LocalDateTime!
+    createdAt: LocalDate!
     username: String!
     comments: [Comment]
 }
@@ -32,24 +21,29 @@ type Comment {
     commentId: ID!
     body: String!
     username: String!
-    createdAt: LocalDateTime!
+    createdAt: LocalDate!
     likes: [Like]
 }
 
 type Like {
     likeId: ID!
     username: String!
-    createdAt: LocalDateTime!
+    createdAt: LocalDate!
 }
 
 type Mutation {
-    createUser(input: CreateUserInput): User
-    createPost()
+    createUser(input: CreateUserInput!): User
+    createPost(input: CreatePostInput!, userId: ID!): Post
 }
 
 input CreateUserInput {
     username: String!
     password: String!
     email: String!
-    createdAt: LocalDateTime!
+    createdAt: LocalDate!
+}
+
+input CreatePostInput {
+    body: String!
+    createdAt: LocalDate!
 }

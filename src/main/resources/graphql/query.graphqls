@@ -1,0 +1,10 @@
+type Query {
+    userById(userId: ID): User!
+    allUsers: [User]!
+    postById(postId: ID): Post!
+    allPosts: [Post]!
+    commentById(commentId: ID): Comment!
+    allComments: [Comment]!
+    likeById(likeId: ID): Like!
+    allLikes: [Like]!
+}
