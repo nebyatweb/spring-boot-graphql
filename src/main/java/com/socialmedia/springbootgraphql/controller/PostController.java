@@ -43,4 +43,8 @@ public class PostController {
         return postService.getAllPosts();
     }
 
+    @QueryMapping
+    public Post postById(@Argument long postId) {
+        return postService.getPostById(postId);
+    }
 }
