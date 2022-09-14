@@ -1,4 +1,4 @@
-package com.socialmedia.springbootgraphql.dto;
+package com.socialmedia.springbootgraphql.resolver;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
