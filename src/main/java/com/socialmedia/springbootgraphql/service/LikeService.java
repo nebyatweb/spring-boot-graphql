@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface LikeService {
     Like createLike(Like like);
-    Like removeLike(long likeId);
+    void removeLike(long likeId);
     Like getLikeById(long likeId);
     List<Like> getAllLikes();
 }
