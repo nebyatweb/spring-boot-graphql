@@ -31,6 +31,15 @@ public class CommentServiceImpl implements CommentService {
     }
 
     @Override
+    public void removeComment(long commentId) {
+        if(commentRepository.existsById(commentId))
+            commentRepository.deleteById(commentId);
+        else throw new CommentNotFoundException("Post with postId "+commentId+" does not exist!");
+    }
+
+
+
+    @Override
     public List<Comment> getAllComments() {
         return commentRepository.findAll();
     }

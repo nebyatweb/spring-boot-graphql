@@ -23,7 +23,7 @@ public class LikeServiceImpl implements LikeService {
 
     @Override
     public void removeLike(long likeId) {
-        if(likeRepository.findById(likeId).isPresent())
+        if(likeRepository.existsById(likeId))
             likeRepository.deleteById(likeId);
         else
             throw new RuntimeException("Cannot find like with id " + likeId);

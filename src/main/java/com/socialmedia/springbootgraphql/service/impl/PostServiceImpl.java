@@ -20,7 +20,6 @@ public class PostServiceImpl implements PostService {
         this.commentRepository = commentRepository;
     }
 
-
     @Override
     public Post createPost(Post post) {
         return postRepository.save(post);
@@ -32,6 +31,13 @@ public class PostServiceImpl implements PostService {
             post.setPostId(postId);
             postRepository.save(post);
         }
+        else throw new PostNotFoundException("Post with postId "+postId+" does not exist!");
+    }
+
+    @Override
+    public void removePost(long postId) {
+        if (postRepository.existsById(postId))
+            postRepository.deleteById(postId);
         else throw new PostNotFoundException("Post with postId "+postId+" does not exist!");
     }
 
