@@ -36,7 +36,7 @@ public class PostController {
                 new ArrayList<>()
         ));
         user.addPost(post);
-        userService.updateUser(user, user.getUserId());
+        userService.updateUser(user, userId);
         return post;
     }
 
