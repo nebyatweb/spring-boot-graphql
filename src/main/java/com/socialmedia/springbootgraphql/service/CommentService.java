@@ -9,6 +9,8 @@ public interface CommentService {
     Comment createComment(Comment comment);
     void updateComment(Comment comment, long commentId);
     void removeComment(long commentId);
+
+    Comment getCommentById(long commentId);
     List<Comment> getAllComments();
     List<Like> getLikes(long commentId);
 }
