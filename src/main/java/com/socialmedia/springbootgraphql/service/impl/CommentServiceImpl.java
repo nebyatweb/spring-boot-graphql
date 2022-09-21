@@ -27,16 +27,22 @@ public class CommentServiceImpl implements CommentService {
         if(commentRepository.findById(commentId).isPresent()){
             comment.setCommentId(commentId);
             commentRepository.save(comment);
-        } else throw new CommentNotFoundException("User with commentId "+commentId+" does not exist!");
+        } else throw new CommentNotFoundException("Comment with commentId "+commentId+" does not exist!");
     }
 
     @Override
     public void removeComment(long commentId) {
         if(commentRepository.existsById(commentId))
             commentRepository.deleteById(commentId);
-        else throw new CommentNotFoundException("Post with postId "+commentId+" does not exist!");
+        else throw new CommentNotFoundException("Comment with postId "+commentId+" does not exist!");
     }
 
+    @Override
+    public Comment getCommentById(long commentId) {
+        if(commentRepository.existsById(commentId))
+            return commentRepository.findById(commentId).get();
+        else throw new CommentNotFoundException("Comment with postId "+commentId+" cannot be found!");
+    }
 
 
     @Override
