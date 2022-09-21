@@ -9,9 +9,11 @@ import com.socialmedia.springbootgraphql.service.PostService;
 import com.socialmedia.springbootgraphql.service.UserService;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.MutationMapping;
+import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.stereotype.Controller;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class CommentController {
@@ -41,6 +43,13 @@ public class CommentController {
         return comment;
     }
 
+    @QueryMapping
+    public List<Comment> allComments() {
+        return commentService.getAllComments();
+    }
+
+    @QueryMapping
+    public Comment
 
 
 }
